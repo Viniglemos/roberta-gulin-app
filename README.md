@@ -44,13 +44,7 @@ set the following before running the server:
 | `NOTION_DATABASE_ID` | ID of the Notion database containing calendar events        |
 | `STRIPE_SECRET_KEY`  | Secret key for Stripe (optional, for payments)              |
 
-AWS credentials must be available in the environment as well (e.g. via
-`~/.aws/credentials` or environment variables `AWS_ACCESS_KEY_ID` and
-`AWS_SECRET_ACCESS_KEY`). See the [AWS CLI configuration
-documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
-for details.
-
-To run the backend locally:
+ backend locally:
 
 ```bash
 cd backend
@@ -66,8 +60,6 @@ export AWS_SECRET_ACCESS_KEY=your_secret_key
 python app.py
 ```
 
-The server will start on `http://localhost:5000`. The `/api/health` endpoint
-returns a simple status message to verify that the service is running.
 
 ### Mobile application
 
@@ -84,19 +76,6 @@ cd mobile
 python main.py
 ```
 
-### Deployment
-
-You can deploy the backend to an AWS EC2 instance by copying the code to the
-server, installing dependencies, and running the Flask application under a
-production server such as Gunicorn. Make sure to set the appropriate
-environment variables and configure the instance’s security group to allow
-inbound HTTP/HTTPS traffic.
-
-For the mobile app, Kivy’s [build tools](https://kivy.org/doc/stable/guide/packaging.html)
-can package the application for iOS and Android. This process typically
-involves using **Buildozer** (for Android) or **Xcode** (for iOS). Those
-tools are beyond the scope of this repository but are well documented on the
-Kivy website.
 
 ### Version control
 
@@ -118,5 +97,3 @@ deployed independently.
 4. Deploy the backend to an EC2 instance and configure an S3 bucket,
    payment provider, and SNS topics/phone numbers as needed.
 
-If you have questions or run into issues, open an issue on your GitHub
-repository or reach out for guidance.
