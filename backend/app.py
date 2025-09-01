@@ -16,9 +16,15 @@ setting these variables before running the server.
 """
 
 import os
-from typing import List, Dict, Any
-
+import boto3
 from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+s3 = boto3.client(
+    's3',
+    aws_access_key_id=os.environ['AWS_ACCESS_KEY_ID'],
+    aws_secret_access_key=os.environ['AWS_SECRET_ACCESS_KEY'],
+    region_name='sa-east-1'
 
 try:
     import boto3  # AWS SDK for Python
